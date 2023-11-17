@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/mainMasterPage.master" AutoEventWireup="true" CodeFile="UserMasterPage.master.cs" Inherits="UserMasterPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="mainContain" Runat="Server">
+    <table width="100%" border="1">
+        <tr>
+            <td style="width:100%;height:5%">
+                &nbsp;&nbsp;&nbsp;&nbsp
+                <a runat="server" href="Default.aspx">Home</a>
+                &nbsp;&nbsp;&nbsp;&nbsp
+                <a runat="server" href="AllEvent.aspx">Event</a>
+                &nbsp;&nbsp;&nbsp;&nbsp
+                <a runat="server" href="MyTicket.aspx">MyTicket</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:100%;height:95%">
+                <asp:ContentPlaceHolder id="userContain" runat="server"></asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+

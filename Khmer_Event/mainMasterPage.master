@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mainMasterPage.master.cs" Inherits="mainMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table width="100%" border="1">
+        <tr>
+            <%--logo--%>
+            <td style="width:80%">
+                <asp:Image runat="server" ImageUrl="~/Image/logo.png" Width="7%" />
+            </td>
+            <%--login with api--%>
+            <td style="width:20%">
+                &nbsp;&nbsp;User:&nbsp;
+                <asp:LoginName ID="LoginName1" runat="server" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:LoginStatus ID="LoginStatus1" runat="server" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="width:100%;height:300px"><a>cart slide</a></td>
+        </tr>
+        <tr>
+            <%--contain--%>
+            <td colspan="2" style="width:100%;height:500px">
+                <asp:ContentPlaceHolder id="mainContain" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="width:100%;height:200px"><a>details website</a></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="width:100%;height:200px"><a>contact & About Us</a></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="width:100%;height:40px"><a>Footer</a></td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
