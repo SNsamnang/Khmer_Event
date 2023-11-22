@@ -3,6 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="adminContain" Runat="Server">
     <asp:Login runat="server"></asp:Login>
     <br /><br />
-    <a href="SignUp.aspx">Sign Up New User</a>
+    <a style="color:black" href="SignUp.aspx">Sign Up New User</a>
 </asp:Content>
 

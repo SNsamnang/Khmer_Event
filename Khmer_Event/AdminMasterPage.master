@@ -3,22 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContain" Runat="Server">
-    <table width="100%" border="1">
+    <table width="100%">
         <tr>
-            <td style="width:100%;height:5%">
+            <td style="width:100%;height:5%;color:black">
                 &nbsp;&nbsp;&nbsp;&nbsp
-                <a runat="server" href="Dashboard.aspx">Dashboard</a>
+                <asp:Hyperlink runat="server" ID="dashboard" Text="DashBoard" NavigateUrl="~/Dashboard.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:Hyperlink>
                 &nbsp;&nbsp;&nbsp;&nbsp
-                <a runat="server" href="ListAllEvent.aspx">Event</a>
+                <asp:HyperLink runat="server" ID="listallevent" Text="List AllEvent" NavigateUrl="~/ListAllEvent.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
                 &nbsp;&nbsp;&nbsp;&nbsp
-                <a runat="server" href="ListAllUser.aspx">All User</a>
+                <asp:HyperLink runat="server" ID="listalluser" Text="List AllUser" NavigateUrl="~/ListAllUser.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
                 &nbsp;&nbsp;&nbsp;&nbsp
-                <a runat="server" href="Ticket.aspx">Ticket</a>
+                <asp:HyperLink runat="server" ID="ticket" Text="Ticket" NavigateUrl="~/Ticket.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
+            </td>   
         </tr>
         <tr>
-            <td style="width:100%;height:95%">
+            <th style="width:100%;height:95%">
                 <asp:ContentPlaceHolder id="adminContain" runat="server"></asp:ContentPlaceHolder>
-            </td>
+            </th>
         </tr>
     </table>
 </asp:Content>

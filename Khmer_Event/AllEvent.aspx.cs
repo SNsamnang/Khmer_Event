@@ -11,4 +11,12 @@ public partial class AllEvent : System.Web.UI.Page
     {
 
     }
+
+    protected void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+        TextBox tId = (TextBox)e.Item.FindControl("txtId");
+        //Response.Redirect("proDetail.aspx?pid=" + tId.Text);
+        if (e.CommandName == "Details")
+            Response.Redirect("Detail.aspx?eid=" + tId.Text);
+    }
 }

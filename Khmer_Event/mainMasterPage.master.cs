@@ -11,4 +11,9 @@ public partial class mainMasterPage : System.Web.UI.MasterPage
     {
 
     }
+
+    protected void LoginStatus1_LoggedOut(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
+    }
 }

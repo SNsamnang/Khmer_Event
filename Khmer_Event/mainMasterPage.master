@@ -7,43 +7,195 @@
     <title></title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+     body{
+		
+		margin: 0;
+		padding: 0px;
+	}
+	.footer{
+		width: 100%;
+		background-color: black;
+	}
+	.footer-contain{
+		width: 100%;
+		position: relative;
+	}
+	.footer-one{
+		width: 25%;
+		float: left;
+		position: absolute;
+		left: 0%;
+		position: relative;
+	}
+	.text{
+		width: 20%;
+		position: absolute;
+		left: 40px;
+		color: white;
+		font-size: 18px;
+	}
+	.footer-two{
+		width: 25%;
+		position: absolute;
+		left: 25%;
+		float: left;
+		position: relative;
+	}
+	.footer-three{
+		width: 25%;
+		position: absolute;
+		left: 25%;
+		float: left;
+		position: relative;
+	}
+	.icon-ac{
+		width: 25px;
+		height: 25px;
+		margin-left: 50px;
+		border-radius: 50%;
+		background-image: url("https://www.acledabank.com.kh/kh/assets/download_material/download-logo-icon.png");
+		background-size: cover;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+	.icon-ac:hover{
+		box-shadow: 0 0 6px 2px white;
+	}
+	.footer-four{
+		width: 25%;
+		position: absolute;
+		left: 25%;
+		float: left;
+		position: relative;
+	}
+	 a{
+		color: white;
+	}
+	.icon-fb{
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		float: left;
+		background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTcOJn4jFXhKJmuq1BJ1dMZ8hwMVQ7fP5Oww&usqp=CAU");
+		background-size: cover
+	}
+	.icon-tele{
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		float: left;
+		margin-left: 8px;
+		background-image: url("https://static-00.iconduck.com/assets.00/telegram-icon-2048x2048-qq8ggh79.png");
+		background-size: cover
+	}
+	.icon-mail{
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		float: left;
+		margin-left: 8px;
+		background-image: url("https://i.pinimg.com/originals/02/c8/60/02c86036601e66e461c7e4ec6778d34b.jpg");
+		background-size: cover
+	}
+	hr{
+		background-color:black;
+		width: 100%;
+		box-shadow: 1px 1px 1px 1px #888888;
+	}
+	.footer-copyright{
+		width: 100%;
+		height: 40px;
+		position: relative;
+	}
+	.copyright-left{
+		width: 80%;
+		height: 100%;
+		float: left;
+	}
+	.copyright-left a{
+		color: white;
+		position: absolute;
+		left: 40px;
+	}
+	.copyright-right{
+		width: 20%;
+		height: 100%;
+		float: left;
+	}
+	.copyright-right a{
+		color: white;
+		position: absolute;
+	}
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <table width="100%" border="1">
-        <tr>
-            <%--logo--%>
-            <td style="width:80%">
-                <asp:Image runat="server" ImageUrl="~/Image/logo.png" Width="7%" />
-            </td>
-            <%--login with api--%>
-            <td style="width:20%">
-                &nbsp;&nbsp;User:&nbsp;
-                <asp:LoginName ID="LoginName1" runat="server" />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:LoginStatus ID="LoginStatus1" runat="server" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="width:100%;height:300px"><a>cart slide</a></td>
-        </tr>
-        <tr>
-            <%--contain--%>
-            <td colspan="2" style="width:100%;height:500px">
-                <asp:ContentPlaceHolder id="mainContain" runat="server">
-                </asp:ContentPlaceHolder>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="width:100%;height:200px"><a>details website</a></td>
-        </tr>
-        <tr>
-            <td colspan="2" style="width:100%;height:200px"><a>contact & About Us</a></td>
-        </tr>
-        <tr>
-            <td colspan="2" style="width:100%;height:40px"><a>Footer</a></td>
-        </tr>
-    </table>
+
+	<div style="width:100%;padding:0px" runat="server">
+		<asp:Image runat="server" ImageUrl="~/Image/banner.jpg" Width="100%" />
+	</div>
+	<%--<div style="width:100%;height:52px">
+		<div style="width:80%;float:left">
+			<asp:Image runat="server" ImageUrl="~/Image/logo.png" Width="7%" />
+		</div>
+	</div>--%>
+	<div style="width:100%;background-color:white;overflow:auto">
+		<asp:ContentPlaceHolder id="mainContain" runat="server"></asp:ContentPlaceHolder>
+	</div>
+	<div style="width:100%;height:100px;margin-top:20px;background-color:black;color:white">
+		<div style="width:95%;height:80px;margin:0 auto;padding:8px;margin-left:30px"><h3>
+			Khmer Even is a website where we can access concert tickets with all the latest events,
+			upcoming events.  At the same time, if we want to buy a ticket, 
+			we can buy a ticket through the Even ticket website that is easy to use and highly secure.  
+			<span style="font-size:24px;color:Green">Website Khmer Event</span>
+
+		</h3></div>
+	</div>
+		<hr>
+            <div style="width:100%;height:250px">
+				<div class="footer">
+					<div class="footer-contain">
+						<div class="footer-one text">
+							<p>Khmer Event</p>
+							<p>My website is show about the most event in Cambodia and you can buy Ticket on  my page.</p>
+						</div>
+						<div class="footer-two text">
+							<p>Help</p>
+							<p>Customer Supports</p>
+							<p>Delivery Details</p>
+							<p>Terms & Conditions</p>
+							<p>Privacy Policy</p>
+						</div>
+						<div class="footer-three text">
+							<p>Payment Method</p>
+							<div class="icon-ac"></div>
+						</div>
+						<div class="footer-four text">
+							<p>Contact Us</p>
+							<p>Email: khmerevent@gmail.com</p>
+							<p>Tel: +855 68 809 810</p>
+							<div>
+							<a href="https://www.facebook.com/profile.php?id=100015369228871" target="_blank"><i class="icon-fb"></i></a>
+							<a href="https://t.me/samnan9" target="_blank"><i class="icon-tele"></i></a>
+							<a href="mailto:nangzk70@gmail.com" target="_blank"><i class="icon-mail"></i></a>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="footer-copyright">
+						<span class="copyright-left"><a>©2023 KhmerEvent. All rights reserved.</a></span>
+						<div class="copyright-right">
+							<div style="color:white;font-size:large">
+								&nbsp;&nbsp;User:&nbsp;
+								<asp:LoginName ID="LoginName1" runat="server" ForeColor="white" Font-Bold="true"  />
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<asp:LoginStatus ID="LoginStatus1" runat="server" ForeColor="white" Font-Bold="true" OnLoggedOut="LoginStatus1_LoggedOut" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
     </form>
 </body>
 </html>

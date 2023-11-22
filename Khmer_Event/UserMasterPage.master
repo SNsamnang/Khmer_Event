@@ -3,22 +3,32 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContain" Runat="Server">
-    <table width="100%" border="1">
-        <tr>
-            <td style="width:100%;height:5%">
+    <style>
+        .link-to-admin{
+            padding:15px;
+            color:black;
+        }
+    </style>
+    <div width="100%">
+        <div style="width:90%;height:5%;margin-top:10px;float:left">
                 &nbsp;&nbsp;&nbsp;&nbsp
-                <a runat="server" href="Default.aspx">Home</a>
+                <asp:HyperLink runat="server" ID="home" Text="Home" NavigateUrl="~/Default.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
                 &nbsp;&nbsp;&nbsp;&nbsp
-                <a runat="server" href="AllEvent.aspx">Event</a>
+                <asp:HyperLink runat="server" ID="allevent" Text="AllEvent" NavigateUrl="~/AllEvent.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
                 &nbsp;&nbsp;&nbsp;&nbsp
-                <a runat="server" href="MyTicket.aspx">MyTicket</a>
-            </td>
-        </tr>
-        <tr>
-            <td style="width:100%;height:95%">
-                <asp:ContentPlaceHolder id="userContain" runat="server"></asp:ContentPlaceHolder>
-            </td>
-        </tr>
-    </table>
+                <asp:HyperLink runat="server" ID="myticket" Text="MyTicket" NavigateUrl="~/MyTicket.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;&nbsp
+                <asp:HyperLink runat="server" ID="addevent" Text="Add New Event" NavigateUrl="~/AddEvent.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;&nbsp
+                <asp:HyperLink runat="server" ID="myevent" Text="My Event" NavigateUrl="~/MyEvent.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
+        </div>
+        <div style="width:10%;float:left">
+            <asp:HyperLink CssClass="link-to-admin" runat="server" ID="linktoadmin" Text="Login Admin" NavigateUrl="~/Dashboard.aspx"></asp:HyperLink>
+        </div>
+        <br /><br />
+        <div style="width:100%;height:95%">
+            <asp:ContentPlaceHolder id="userContain" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
 </asp:Content>
 
