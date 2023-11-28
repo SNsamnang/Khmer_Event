@@ -14,23 +14,11 @@ public partial class AddEvent : System.Web.UI.Page
     string uName;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            chkAgr.Checked = false;
-            cmdAdd.Enabled = true;
-        }
 
         MembershipUser currentUser = Membership.GetUser();
         uName = currentUser.UserName;
     }
 
-    protected void chkAgr_CheckedChanged(object sender, EventArgs e)
-    {
-        if (chkAgr.Checked == true)
-            cmdAdd.Enabled = true;
-        else
-            cmdAdd.Enabled = false;
-    }
 
 
     protected void cmdAdd_Click(object sender, EventArgs e)
@@ -69,6 +57,7 @@ public partial class AddEvent : System.Web.UI.Page
             conn.Close();
             resets();
             lblMessage.Text = "You Have Added a New Row Successfully!";
+            Response.Redirect("AddEvent.aspx");
         }
         else lblMessage.Text = "Make Sure You Have Complete All Field Properly!";
     }
@@ -83,7 +72,6 @@ public partial class AddEvent : System.Web.UI.Page
         txtDescription.Text = "";
         txtContact.Text = "";
         txtLink.Text = "";
-        chkAgr.Checked = true;
         cmdAdd.Enabled = true;
     }
 }

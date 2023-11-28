@@ -1,38 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMasterPage.master" AutoEventWireup="true" CodeFile="MyEvent.aspx.cs" Inherits="MyEvent" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="userContain" Runat="Server">
-    <asp:ListView ID="ListView1" runat="server" GroupPlaceholderID="groupPlacehoder1" ItemPlaceholderID="itemPlaceholder1" OnPagePropertiesChanging="ListView1_PagePropertiesChanging" OnItemCommand="ListView1_ItemCommand">
+    <asp:ListView ID="lview1" runat="server" GroupPlaceholderID="groupPlacehoder1" ItemPlaceholderID="itemPlaceholder1" OnPagePropertiesChanging="ListView1_PagePropertiesChanging" OnItemCommand="ListView1_ItemCommand">
       <LayoutTemplate>
-      <table style="width:100%">
-         <tr>
-             <th>
-             </th>
-             <th >
-             </th>
-         </tr>
-          <asp:PlaceHolder runat="server" ID="groupPlacehoder1"></asp:PlaceHolder>
-          <tr><td colspan="2">     
-             <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1" PageSize="5">
-                   <Fields>
-                       <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="True" ShowNextPageButton="false" ShowPreviousPageButton="False" />
-                       <asp:NumericPagerField ButtonCount="10" />
-                      <asp:NextPreviousPagerField ButtonType="Link" ShowLastPageButton="True" ShowNextPageButton="false" ShowPreviousPageButton="False" />
-                   </Fields>
-               </asp:DataPager>
-          </td></tr>
-      </table>
+        <asp:PlaceHolder runat="server" ID="groupPlacehoder1"></asp:PlaceHolder>
      </LayoutTemplate>
      <GroupTemplate>
         <tr> 
             <%--<tr id="itemPlaceholder1" runat="server">--%>
             <asp:PlaceHolder runat="server" ID="itemPlaceholder1"></asp:PlaceHolder>
         </tr>
-    </GroupTemplate>
+     </GroupTemplate>
         <ItemTemplate>
         <style>
             .contain-card{
                 width:22%;
-                height:400px;
+                height:420px;
                 float:left;
                 margin-left:2%;
                 border:1px solid black;
@@ -74,9 +57,6 @@
             .next{
                 color:black;
             }
-            .pager{
-                margin:0 auto;
-            }
         </style>
         <div style="width:94%;margin:0 auto;color:black">
             <div class="contain-card">
@@ -110,21 +90,21 @@
                         </tr>
                         <tr>
                             <th colspan="2">
-                                <asp:LinkButton CommandName="Details" ID="Details" Text="See More" runat="server" Font-Bold="false" ForeColor="#009999" Font-Italic="true"></asp:LinkButton>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th colspan="2">
                                 <asp:Button CssClass="btn-Buy" runat="server" ID="btnBuy" Text="Buy Now" />
                             </th>                               
                         </tr>
                         <tr>
-                            <td>
+                            <th colspan="2">
+                                <asp:LinkButton CommandName="Details" ID="Details" Text="See More" runat="server" Font-Bold="false" ForeColor="#009999" Font-Italic="true"></asp:LinkButton>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
                                 <asp:LinkButton CommandName="editImage" ID="editImage" Text="Edit Image" runat="server" Font-Bold="false" ForeColor="#009999" Font-Italic="true"></asp:LinkButton>
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 <asp:LinkButton CommandName="editInfo" ID="editInfo" Text="Edit Info" runat="server" Font-Bold="false" ForeColor="#009999" Font-Italic="true"></asp:LinkButton>
-                            </td>
+                            </th>
                         </tr>
                     </table>
                 </div>

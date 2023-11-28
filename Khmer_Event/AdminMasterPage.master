@@ -3,24 +3,32 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContain" Runat="Server">
-    <table width="100%">
-        <tr>
-            <td style="width:100%;height:5%;color:black">
-                &nbsp;&nbsp;&nbsp;&nbsp
-                <asp:Hyperlink runat="server" ID="dashboard" Text="DashBoard" NavigateUrl="~/Dashboard.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:Hyperlink>
-                &nbsp;&nbsp;&nbsp;&nbsp
-                <asp:HyperLink runat="server" ID="listallevent" Text="List AllEvent" NavigateUrl="~/ListAllEvent.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
-                &nbsp;&nbsp;&nbsp;&nbsp
-                <asp:HyperLink runat="server" ID="listalluser" Text="List AllUser" NavigateUrl="~/ListAllUser.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
-                &nbsp;&nbsp;&nbsp;&nbsp
-                <asp:HyperLink runat="server" ID="ticket" Text="Ticket" NavigateUrl="~/Ticket.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
-            </td>   
-        </tr>
-        <tr>
-            <th style="width:100%;height:95%">
-                <asp:ContentPlaceHolder id="adminContain" runat="server"></asp:ContentPlaceHolder>
-            </th>
-        </tr>
-    </table>
+    <style>
+        .link-to-user{
+            padding:15px;
+            color:black;
+        }
+    </style>
+    <div width="100%">
+        <div style="width:90%;height:5%;margin-top:10px;float:left">
+            &nbsp;&nbsp;&nbsp;&nbsp
+            <asp:Hyperlink runat="server" ID="dashboard" Text="DashBoard" NavigateUrl="~/Dashboard.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:Hyperlink>
+            &nbsp;&nbsp;&nbsp;&nbsp
+            <asp:HyperLink runat="server" ID="listallevent" Text="List AllEvent" NavigateUrl="~/ListAllEvent.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
+            &nbsp;&nbsp;&nbsp;&nbsp
+            <asp:HyperLink runat="server" ID="listalluser" Text="List AllUser" NavigateUrl="~/ListAllUser.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
+            &nbsp;&nbsp;&nbsp;&nbsp
+            <asp:HyperLink runat="server" ID="ticket" Text="Ticket" NavigateUrl="~/Ticket.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>
+            &nbsp;&nbsp;&nbsp;&nbsp
+            <asp:HyperLink runat="server" ID="useramount" Text="Add Amount" NavigateUrl="~/AddAmount.aspx" ForeColor="black" Font-Bold="true" Font-Underline="false"></asp:HyperLink>                        
+        </div>
+        <div style="width:10%;float:left">
+            <asp:HyperLink CssClass="link-to-user" runat="server" ID="linktouser" Text="User Page" NavigateUrl="~/Default.aspx"></asp:HyperLink>
+        </div>
+        <br /><br />
+        <div style="width:100%;height:95%">
+            <asp:ContentPlaceHolder id="adminContain" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
 </asp:Content>
 

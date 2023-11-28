@@ -103,15 +103,7 @@
            <div id="itemPlaceholderContainer" runat="server">
                <span runat="server" id="itemPlaceholder" />
            </div>
-               <asp:DataPager  ID="DataPager1" runat="server" PageSize="4">
-                   <Fields>
-                       <asp:NextPreviousPagerField ButtonCssClass="next" ButtonType="Link" ShowFirstPageButton="False" ShowNextPageButton="False" ShowPreviousPageButton="True" />
-                       
-                       <asp:NumericPagerField ButtonCount="10"  />
-                       
-                       <asp:NextPreviousPagerField ButtonCssClass="next" ButtonType="Link" ShowLastPageButton="False" ShowNextPageButton="True" ShowPreviousPageButton="False" />
-                   </Fields>
-               </asp:DataPager>
+              
        </LayoutTemplate>
     </asp:ListView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Khmer_EventConnectionString %>" SelectCommand="SELECT [EventID], [EventName], [Douration], [DateStart], [DateEnd], [Price], [Place], [ImageURL] FROM [tblKhmerEvent]"></asp:SqlDataSource>

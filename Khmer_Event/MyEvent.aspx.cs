@@ -25,7 +25,7 @@ public partial class MyEvent : System.Web.UI.Page
 
     protected void ListView1_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
     {
-        (ListView1.FindControl("DataPager1") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+        (lview1.FindControl("DataPager1") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
         this.PopulateData();
     }
 
@@ -33,11 +33,14 @@ public partial class MyEvent : System.Web.UI.Page
     {
         TextBox tId = (TextBox)e.Item.FindControl("txtId");
         //Response.Redirect("proDetail.aspx?pid=" + tId.Text);
-        if (e.CommandName == "editImage")
-            Response.Redirect("editImage.aspx?pid=" + tId.Text);
+        if (e.CommandName == "Details")
+            Response.Redirect("Detail.aspx?eid=" + tId.Text);
+        else if (e.CommandName == "editImage")
+            Response.Redirect("EditImageUser.aspx?eid=" + tId.Text);
         else
-            Response.Redirect("editInfo.aspx?pid=" + tId.Text);
+            Response.Redirect("EditInfoUser.aspx?eid=" + tId.Text);
     }
+
     private void PopulateData()
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString);
@@ -51,8 +54,8 @@ public partial class MyEvent : System.Web.UI.Page
         {
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            ListView1.DataSource = dt;
-            ListView1.DataBind();
+            lview1.DataSource = dt;
+            lview1.DataBind();
         }
 
         //conn.Close();

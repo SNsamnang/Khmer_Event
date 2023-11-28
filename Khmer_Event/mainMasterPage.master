@@ -109,7 +109,7 @@
 		position: relative;
 	}
 	.copyright-left{
-		width: 80%;
+		width: 67%;
 		height: 100%;
 		float: left;
 	}
@@ -119,7 +119,7 @@
 		left: 40px;
 	}
 	.copyright-right{
-		width: 20%;
+		width: 33%;
 		height: 100%;
 		float: left;
 	}
@@ -190,7 +190,22 @@
 								&nbsp;&nbsp;User:&nbsp;
 								<asp:LoginName ID="LoginName1" runat="server" ForeColor="white" Font-Bold="true"  />
 								&nbsp;&nbsp;&nbsp;&nbsp;
+								<asp:Label runat="server" ID="label" Text="Balance:"></asp:Label>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								<asp:ListView ID="ListView1" runat="server" GroupPlaceholderID="groupPlacehoder1" ItemPlaceholderID="itemPlaceholder1" OnPagePropertiesChanging="ListView1_PagePropertiesChanging">
+									<LayoutTemplate>
+										<asp:PlaceHolder runat="server" ID="groupPlacehoder1"></asp:PlaceHolder>
+									</LayoutTemplate>
+									<GroupTemplate> 
+										<asp:PlaceHolder runat="server" ID="itemPlaceholder1"></asp:PlaceHolder>
+									</GroupTemplate>
+									<ItemTemplate>
+										<asp:Label runat="server" ID="txtCurrentBalance" Text='<%# Eval("Balance")+"$" %>'></asp:Label>
+									</ItemTemplate>
+								</asp:ListView>
+								&nbsp;&nbsp;&nbsp;&nbsp;
 								<asp:LoginStatus ID="LoginStatus1" runat="server" ForeColor="white" Font-Bold="true" OnLoggedOut="LoginStatus1_LoggedOut" />
+
 							</div>
 						</div>
 					</div>

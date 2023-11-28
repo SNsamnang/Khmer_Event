@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMasterPage.master" AutoEventWireup="true" CodeFile="Detail.aspx.cs" Inherits="Detail" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMasterPage.master" AutoEventWireup="true" CodeFile="AdminDetail.aspx.cs" Inherits="AdminDetail" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="userContain" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="adminContain" Runat="Server">
     <style>
         .detail-containner{
             width:90%;
