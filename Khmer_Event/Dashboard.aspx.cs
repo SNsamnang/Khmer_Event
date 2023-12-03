@@ -36,7 +36,11 @@ public partial class Dashboard : System.Web.UI.Page
         conn.Close();
     }
     private void ShowDashboardTicket() 
-    { 
-    
+    {
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString);
+        SqlCommand cmdPT = new SqlCommand("SELECT COUNT(TicketID) From tblTicket ", conn);
+        conn.Open();
+        dashboardticket.Text = Convert.ToString(cmdPT.ExecuteScalar());
+        conn.Close();
     }
 }

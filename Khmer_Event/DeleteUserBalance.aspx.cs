@@ -13,7 +13,7 @@ public partial class DeleteEvent : System.Web.UI.Page
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString);
         string bId = Request.QueryString.Get("bId");
-        SqlCommand cmd = new SqlCommand("DELETE FROM tblBalance where ID=@bId", conn);
+        SqlCommand cmd = new SqlCommand("DELETE FROM tblUserBalance where ID=@bId", conn);
         cmd.Parameters.Add("@bId", System.Data.SqlDbType.Int);
         cmd.Parameters["@bId"].Value = bId;
         conn.Open();

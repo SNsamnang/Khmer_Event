@@ -89,7 +89,7 @@
                             </tr>
                             <tr>
                                 <th colspan="2">
-                                    <asp:Button CssClass="btn-Buy" runat="server" ID="btnBuy" Text="Buy Now" />
+                                    <asp:Button CssClass="btn-Buy" CommandName="Buy" runat="server" ID="btnBuy" Text="Buy Now" />
                                 </th>                               
                             </tr>
                         </table>
@@ -106,6 +106,6 @@
               
        </LayoutTemplate>
     </asp:ListView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Khmer_EventConnectionString %>" SelectCommand="SELECT [EventID], [EventName], [Douration], [DateStart], [DateEnd], [Price], [Place], [ImageURL] FROM [tblKhmerEvent]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Khmer_EventConnectionString %>" SelectCommand="SELECT [EventID], [EventName], [Douration], [DateStart], [DateEnd], [Price], [Place], [ImageURL] FROM [tblKhmerEvent] where QTY>0"></asp:SqlDataSource>
 </asp:Content>
 

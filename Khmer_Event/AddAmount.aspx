@@ -47,12 +47,20 @@
             </td>
         </tr>
         <tr>
-            <td><asp:Label runat="server" ID="label1" Text="Amount :"></asp:Label></td>
-            <td><asp:TextBox CssClass="textbox Search" runat="server" ID="txtAmount"></asp:TextBox></td>
+            <td><asp:Label runat="server" ID="label1" Text="AmountFirst :"></asp:Label></td>
+            <td><asp:TextBox CssClass="textbox Search" runat="server" ID="txtAmountFirst"></asp:TextBox></td>
         </tr>
         <tr>
-            <td><asp:Label runat="server" ID="label2" Text="Spent :"></asp:Label></td>
-            <td><asp:TextBox CssClass="textbox Search" runat="server" ID="txtSpent"></asp:TextBox></td>
+            <td><asp:Label runat="server" ID="label3" Text="AmountAdd :"></asp:Label></td>
+            <td><asp:TextBox CssClass="textbox Search" runat="server" ID="txtAmountAdd"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td><asp:Label runat="server" ID="label2" Text="SpentFirst :"></asp:Label></td>
+            <td><asp:TextBox CssClass="textbox Search" runat="server" ID="txtSpentFirst"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td><asp:Label runat="server" ID="label4" Text="SpentAdd :"></asp:Label></td>
+            <td><asp:TextBox CssClass="textbox Search" runat="server" ID="txtSpentAdd"></asp:TextBox></td>
         </tr>
         <tr>
             <td><asp:Label runat="server" ID="Label8" Text="User Name :"></asp:Label></td>
@@ -60,14 +68,6 @@
                 <asp:DropDownList runat="server" CssClass="Search" ID="txtUser" Font-Size="14px" Width="205px" Height="25px" DataSourceID="tourTypeDS" DataTextField="UserName" DataValueField="UserId" ></asp:DropDownList>
                 <asp:SqlDataSource ID="tourTypeDS" runat="server" ConnectionString="<%$ ConnectionStrings:LocalSqlServer %>" ProviderName="<%$ ConnectionStrings:LocalSqlServer.ProviderName %>" SelectCommand="SELECT * FROM [dbo].[aspnet_Users]"></asp:SqlDataSource>
             </td>        
-        </tr>
-        <tr>
-            <td>
-                <asp:Label runat="server" ID="label3" Text="Balance:"></asp:Label>
-            </td>
-            <td>
-                <asp:TextBox CssClass="textbox Search" runat="server" ID="txtBalance"></asp:TextBox>
-            </td>
         </tr>
         <tr>
             <td>
@@ -99,13 +99,14 @@
                 </td>
             </tr>
             <tr style="background-color:whitesmoke">
-                <td style="width:5%"></td>
-                <td style="width:18%">Amount</td>
+                <td style="width:3%"></td>
+                <td style="width:15%">Amount</td>
                 <td style="width:18%">Spent</td>
                 <td style="width:19%">Balance</td>
-                <td style="width:20%">UserId</td>
+                <td style="width:17%">UserId</td>
                 <td style="width:10%">Edit</td>
                 <td style="width:10%">Delete</td>
+                <td style="width:7%"></td>
             </tr>       
                 <asp:ListView ID="view1" runat="server" GroupPlaceholderID="groupPlacehoder1" ItemPlaceholderID="itemPlaceholder1" OnItemCommand="lview1_ItemCommand" OnPagePropertiesChanging="view1_PagePropertiesChanging">
                 <LayoutTemplate>
@@ -125,10 +126,10 @@
                                 <asp:TextBox Visible="false" runat="server" ID="txtID" Text='<%# Eval("ID") %>'></asp:TextBox>
                             </td>
                             <td>
-                                <asp:Label runat="server" ID="txtAmount1" Text='<%# Eval("Amount")+"$" %>'></asp:Label>
+                                <asp:Label runat="server" ID="txtAmount1" Text='<%# Eval("TotalAmount")+"$" %>'></asp:Label>
                             </td>
                             <td>
-                                <asp:Label runat="server" ID="txtSpent1" Text='<%# Eval("Spent")+"$" %>'></asp:Label>
+                                <asp:Label runat="server" ID="txtSpent1" Text='<%# Eval("TotalSpent")+"$" %>'></asp:Label>
                             </td>
                             <td>
                                 <asp:Label runat="server" ID="txtBalance1" Text='<%# Eval("Balance")+"$" %>'></asp:Label>
@@ -141,6 +142,9 @@
                             </td>
                             <td>
                                 <asp:LinkButton ForeColor="black" CommandName="Delete" runat="server" ID="btnDelete" Text="Delete"></asp:LinkButton>
+                            </td>
+                            <td>
+                                <asp:LinkButton ForeColor="black" CommandName="Topup" runat="server" ID="btnTopUp" Text="TopUp"></asp:LinkButton>
                             </td>
                         </tr>
                     </ItemTemplate>

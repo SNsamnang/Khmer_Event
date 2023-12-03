@@ -35,6 +35,8 @@ public partial class MyEvent : System.Web.UI.Page
         //Response.Redirect("proDetail.aspx?pid=" + tId.Text);
         if (e.CommandName == "Details")
             Response.Redirect("Detail.aspx?eid=" + tId.Text);
+        else if (e.CommandName == "Buy")
+            Response.Redirect("Buy.aspx?eid=" + tId.Text);
         else if (e.CommandName == "editImage")
             Response.Redirect("EditImageUser.aspx?eid=" + tId.Text);
         else
@@ -44,7 +46,7 @@ public partial class MyEvent : System.Web.UI.Page
     private void PopulateData()
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString);
-        SqlCommand cmdPT = new SqlCommand("SELECT [EventID],[EventName],[Douration],[DateStart],[DateEnd],[Price],[Place],[ImageURL] FROM [dbo].[tblKhmerEvent] where userName=@cUser", conn);
+        SqlCommand cmdPT = new SqlCommand("SELECT [EventID],[EventName],[Douration],[DateStart],[DateEnd],[Price],[Place],[ImageURL] FROM [dbo].[tblKhmerEvent] where userName=@cUser and QTY>0", conn);
         cmdPT.Parameters.Add("@cUser", System.Data.SqlDbType.NVarChar);
         cmdPT.Parameters["@cUser"].Value = uName;
 

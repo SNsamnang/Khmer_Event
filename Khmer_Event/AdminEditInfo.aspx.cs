@@ -30,9 +30,10 @@ public partial class AdminEditInfo : System.Web.UI.Page
                 txtDateEnd.Text = rd[4].ToString();
                 txtPrice.Text = rd[5].ToString();
                 txtPlace.Text = rd[6].ToString();
-                txtDescription.Text = rd[7].ToString();
-                txtContact.Text = rd[8].ToString();
-                txtLink.Text = rd[9].ToString();
+                txtQTY.Text = rd[7].ToString();
+                txtDescription.Text = rd[8].ToString();
+                txtContact.Text = rd[9].ToString();
+                txtLink.Text = rd[10].ToString();
             }
             rd.Close();
             conn.Close();
@@ -48,7 +49,7 @@ public partial class AdminEditInfo : System.Web.UI.Page
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString);
         SqlCommand cmdPT = new SqlCommand("UPDATE [dbo].[tblKhmerEvent]" +
         "SET [EventName] = @EventName, [Douration] = @Douration, [DateStart] = @DateStart" +
-        ",[DateEnd] = @DateEnd, [Price] = @Price, [Place] = @Place, [Description] = @Description" +
+        ",[DateEnd] = @DateEnd, [Price] = @Price, [Place] = @Place, [QTY]=@QTY, [Description] = @Description" +
         ",[Contace] = @Contace, [Link] = @Link WHERE[EventID] = @eventId", conn);
         cmdPT.Parameters.Add("@eventId", System.Data.SqlDbType.Int);
         cmdPT.Parameters["@eventId"].Value = txtEventID.Text;
@@ -64,6 +65,8 @@ public partial class AdminEditInfo : System.Web.UI.Page
         cmdPT.Parameters["@Price"].Value = txtPrice.Text;
         cmdPT.Parameters.Add("@Place", System.Data.SqlDbType.NVarChar);
         cmdPT.Parameters["@Place"].Value = txtPlace.Text;
+        cmdPT.Parameters.Add("@QTY", System.Data.SqlDbType.Int);
+        cmdPT.Parameters["@QTY"].Value = txtQTY.Text;
         cmdPT.Parameters.Add("@Description", System.Data.SqlDbType.NVarChar);
         cmdPT.Parameters["@Description"].Value = txtDescription.Text;
         cmdPT.Parameters.Add("@Contace", System.Data.SqlDbType.NVarChar);

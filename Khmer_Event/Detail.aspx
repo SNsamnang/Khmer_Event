@@ -30,7 +30,7 @@
             cursor:pointer;
         }
     </style>
-    <asp:ListView ID="lview1" runat="server">
+    <asp:ListView ID="lview1" runat="server" OnItemCommand="lview1_ItemCommand">
         <ItemTemplate>
             <div class="detail-containner">
                 <table width="90%" style="margin:0 auto">
@@ -40,7 +40,7 @@
                         </td>
                         <td width="35%">
                             <table>
-                                <tr>
+                                <tr style="height:50px">
                                     <td colspan="2">
                                         <asp:label ID="txtEventName" runat="server" Text='<%# Eval("EventName") %>' Font-Bold="True" Font-Size="14pt" ForeColor="Blue" />
                                     </td>                                  
@@ -73,6 +73,12 @@
                                     <td>Place :</td>
                                     <td>
                                         <asp:Label ID="txtPlace" runat="server" Text='<%# Eval("Place") %>' ForeColor="Black" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>QTY :</td>
+                                    <td>
+                                        <asp:Label ID="txtQTY" runat="server" Text='<%# Eval("QTY") %>' ForeColor="Black" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -110,7 +116,7 @@
                     <tr>
                         <th></th>
                         <th width="15%">
-                            <asp:Button CssClass="btn-Buy" runat="server" ID="btnBuy" Text="Buy Now" />
+                            <asp:Button CssClass="btn-Buy" CommandName="Buy" runat="server" ID="btnBuy" Text="Buy Now" />
                         </th>
                     </tr>
                 </table>

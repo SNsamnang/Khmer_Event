@@ -22,7 +22,7 @@ public partial class AddAmount : System.Web.UI.Page
     private void PopulateData()
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString);
-        SqlCommand cmdPT = new SqlCommand("SELECT tblBalance.ID, tblBalance.Amount,tblBalance.Spent,tblBalance.Balance, [dbo].[aspnet_Users].UserName From tblBalance Inner Join [dbo].[aspnet_Users] On tblBalance.UserId = [dbo].[aspnet_Users].UserId", conn);
+        SqlCommand cmdPT = new SqlCommand("SELECT tblUserBalance.ID, tblUserBalance.TotalAmount,tblUserBalance.TotalSpent,tblUserBalance.Balance, [dbo].[aspnet_Users].UserName From tblUserBalance Inner Join [dbo].[aspnet_Users] On tblUserBalance.UserId = [dbo].[aspnet_Users].UserId order by [dbo].[aspnet_Users].UserName", conn);
         using (SqlDataAdapter sda = new SqlDataAdapter(cmdPT))
         {
             DataTable dt = new DataTable();
@@ -41,16 +41,18 @@ public partial class AddAmount : System.Web.UI.Page
     protected void btnBalance_Click(object sender, EventArgs e)
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString);
-        SqlCommand cmdAdd = new SqlCommand("Insert Into tblBalance Values(@Amount, @Spent, @UserId,@Balance)", conn);
-        cmdAdd.Parameters.Add("@Amount", System.Data.SqlDbType.Decimal);
-        cmdAdd.Parameters["@Amount"].Value = txtAmount.Text;
-        cmdAdd.Parameters.Add("@Spent", System.Data.SqlDbType.Decimal);
-        cmdAdd.Parameters["@Spent"].Value = txtSpent.Text;
+        SqlCommand cmdAdd = new SqlCommand("Insert Into tblUserBalance(UserId,AmountFirst,SpentFirst,AmountAdd,SpentAdd) Values(@UserId, @AmountFirst, @SpentFirst, @AmountAdd, @SpentAdd )", conn);
         cmdAdd.Parameters.Add("@UserId", System.Data.SqlDbType.NVarChar);
         cmdAdd.Parameters["@UserId"].Value = txtUser.SelectedValue.ToString();
-        cmdAdd.Parameters.Add("@Balance", System.Data.SqlDbType.Decimal);
-        cmdAdd.Parameters["@Balance"].Value = txtBalance.Text;
-        conn.Open();
+        cmdAdd.Parameters.Add("@AmountFirst", System.Data.SqlDbType.Decimal);
+        cmdAdd.Parameters["@AmountFirst"].Value = txtAmountFirst.Text;
+        cmdAdd.Parameters.Add("@SpentFirst", System.Data.SqlDbType.Decimal);
+        cmdAdd.Parameters["@SpentFirst"].Value = txtSpentFirst.Text;
+        cmdAdd.Parameters.Add("@AmountAdd", System.Data.SqlDbType.Decimal);
+        cmdAdd.Parameters["@AmountAdd"].Value = txtAmountAdd.Text;
+        cmdAdd.Parameters.Add("@SpentAdd", System.Data.SqlDbType.Decimal);
+        cmdAdd.Parameters["@SpentAdd"].Value = txtSpentAdd.Text;
+        conn.Open();       
         cmdAdd.ExecuteNonQuery();
         conn.Close();
         reset();
@@ -59,9 +61,8 @@ public partial class AddAmount : System.Web.UI.Page
     }
     private void reset()
     {
-        txtAmount.Text = "";
-        txtSpent.Text = "";
-        txtBalance.Text = "";
+        txtAmountFirst.Text = "";
+        txtSpentFirst.Text = "";
         chkgr.Checked = false;
     }
 
@@ -72,6 +73,8 @@ public partial class AddAmount : System.Web.UI.Page
             Response.Redirect("EditUserBalance.aspx?bId=" + bId.Text);
         else if (e.CommandName == "Delete")
             Response.Redirect("DeleteUserBalance.aspx?bId=" + bId.Text);
+        else if (e.CommandName == "Topup")
+            Response.Redirect("TopUp.aspx?bId=" + bId.Text);
     }
 
 
@@ -80,7 +83,7 @@ public partial class AddAmount : System.Web.UI.Page
     {
 
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString);
-        SqlCommand cmdPT = new SqlCommand("SELECT tblBalance.ID, tblBalance.Amount,tblBalance.Spent,tblBalance.Balance, [dbo].[aspnet_Users].UserName From tblBalance Inner Join [dbo].[aspnet_Users] On tblBalance.UserId = [dbo].[aspnet_Users].UserId where tblBalance.UserId=@UserId", conn);
+        SqlCommand cmdPT = new SqlCommand("SELECT tblUserBalance.ID, tblUserBalance.TotalAmount,tblUserBalance.TotalSpent,tblUserBalance.Balance, [dbo].[aspnet_Users].UserName From tblUserBalance Inner Join [dbo].[aspnet_Users] On tblUserBalance.UserId = [dbo].[aspnet_Users].UserId where tblUserBalance.UserId=@UserId", conn);
         cmdPT.Parameters.Add("@UserId", System.Data.SqlDbType.NVarChar);
         cmdPT.Parameters["@UserId"].Value = DropDownList1.SelectedValue.ToString();
         using (SqlDataAdapter sda = new SqlDataAdapter(cmdPT))

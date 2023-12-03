@@ -40,7 +40,7 @@ public partial class mainMasterPage : System.Web.UI.MasterPage
         {
             uName = currentUser.UserName;
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString);
-            SqlCommand cmdPT = new SqlCommand("SELECT tblBalance.Balance, [dbo].[aspnet_Users].UserName From tblBalance Inner Join [dbo].[aspnet_Users] On tblBalance.UserId = [dbo].[aspnet_Users].UserId where [dbo].[aspnet_Users].UserName=@UserId", conn);
+            SqlCommand cmdPT = new SqlCommand("SELECT top 1 tblUserBalance.Balance, [dbo].[aspnet_Users].UserName From tblUserBalance Inner Join [dbo].[aspnet_Users] On tblUserBalance.UserId = [dbo].[aspnet_Users].UserId where [dbo].[aspnet_Users].UserName=@UserId", conn);
             cmdPT.Parameters.Add("@UserId", System.Data.SqlDbType.NVarChar);
             cmdPT.Parameters["@UserId"].Value = uName;
             using (SqlDataAdapter sda = new SqlDataAdapter(cmdPT))

@@ -29,7 +29,7 @@ public partial class AddEvent : System.Web.UI.Page
             imgUpload.SaveAs(Server.MapPath("~\\Image") + "/" + imgUpload.FileName);
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString);
-            SqlCommand cmdAdd = new SqlCommand("Insert Into tblKhmerEvent Values(@EventName, @Douration, @DateStart, @DateEnd, @Price, @Place, @Description, @Contact, @Link, @ImageURL, @Username)", conn);
+            SqlCommand cmdAdd = new SqlCommand("Insert Into tblKhmerEvent Values(@EventName, @Douration, @DateStart, @DateEnd, @Price, @Place, @QTY, @Description, @Contact, @Link, @ImageURL, @Username)", conn);
             cmdAdd.Parameters.Add("@EventName", System.Data.SqlDbType.NVarChar);
             cmdAdd.Parameters["@EventName"].Value = txtEventName.Text;
             cmdAdd.Parameters.Add("@Douration", System.Data.SqlDbType.NVarChar);
@@ -42,6 +42,8 @@ public partial class AddEvent : System.Web.UI.Page
             cmdAdd.Parameters["@Price"].Value = txtPrice.Text;
             cmdAdd.Parameters.Add("@Place", System.Data.SqlDbType.NVarChar);
             cmdAdd.Parameters["@Place"].Value = txtPlace.Text;
+            cmdAdd.Parameters.Add("@QTY", System.Data.SqlDbType.NVarChar);
+            cmdAdd.Parameters["@QTY"].Value = txtQTY.Text;
             cmdAdd.Parameters.Add("@Description", System.Data.SqlDbType.NVarChar);
             cmdAdd.Parameters["@Description"].Value = txtDescription.Text;
             cmdAdd.Parameters.Add("@Contact", System.Data.SqlDbType.NVarChar);
@@ -56,8 +58,9 @@ public partial class AddEvent : System.Web.UI.Page
             cmdAdd.ExecuteNonQuery();
             conn.Close();
             resets();
-            lblMessage.Text = "You Have Added a New Row Successfully!";
             Response.Redirect("AddEvent.aspx");
+            lblMessage.Text = "You Have Added a New Row Successfully!";
+            
         }
         else lblMessage.Text = "Make Sure You Have Complete All Field Properly!";
     }
@@ -69,6 +72,7 @@ public partial class AddEvent : System.Web.UI.Page
         txtDateEnd.Text = "";
         txtPlace.Text = "";
         txtPrice.Text = "";
+        txtQTY.Text = "";
         txtDescription.Text = "";
         txtContact.Text = "";
         txtLink.Text = "";

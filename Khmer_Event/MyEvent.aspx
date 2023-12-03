@@ -90,7 +90,7 @@
                         </tr>
                         <tr>
                             <th colspan="2">
-                                <asp:Button CssClass="btn-Buy" runat="server" ID="btnBuy" Text="Buy Now" />
+                                <asp:Button CssClass="btn-Buy" CommandName="Buy" runat="server" ID="btnBuy" Text="Buy Now" />
                             </th>                               
                         </tr>
                         <tr>

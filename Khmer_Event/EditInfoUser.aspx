@@ -61,6 +61,10 @@
                         <td style="font-family:'Times New Roman', Times, serif;font-size:18px"><asp:TextBox CssClass="inputfile" runat="server" ID="txtPlace" Width="100%" Height="25px"></asp:TextBox></td>
                     </tr>
                     <tr>
+                        <td style="font-family:'Times New Roman', Times, serif;font-size:18px"><asp:Label runat="server" ID="label10" Text="QTY"></asp:Label></td>
+                        <td style="font-family:'Times New Roman', Times, serif;font-size:18px"><asp:TextBox CssClass="inputfile" runat="server" ID="txtQTY" Width="100%" Height="25px"></asp:TextBox></td>
+                    </tr>
+                    <tr>
                         <td style="font-family:'Times New Roman', Times, serif;font-size:18px"><asp:Label runat="server" ID="label7" Text="Description"></asp:Label></td>
                         <td style="font-family:'Times New Roman', Times, serif;font-size:18px"><asp:TextBox CssClass="inputfile" runat="server" ID="txtDescription" TextMode="MultiLine" Rows="5" Width="100%"></asp:TextBox></td>
                     </tr>

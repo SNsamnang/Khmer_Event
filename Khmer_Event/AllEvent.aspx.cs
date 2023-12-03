@@ -18,5 +18,7 @@ public partial class AllEvent : System.Web.UI.Page
         //Response.Redirect("proDetail.aspx?pid=" + tId.Text);
         if (e.CommandName == "Details")
             Response.Redirect("Detail.aspx?eid=" + tId.Text);
+        else if (e.CommandName == "Buy")
+            Response.Redirect("Buy.aspx?eid=" + tId.Text);
     }
 }

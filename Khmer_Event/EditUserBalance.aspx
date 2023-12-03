@@ -22,11 +22,7 @@
         </tr>
         <tr>
             <td><asp:Label runat="server" ID="label1" Text="Amount :"></asp:Label></td>
-            <td><asp:TextBox CssClass="textbox" runat="server" ID="txtAmount"></asp:TextBox></td>
-        </tr>
-        <tr>
-            <td><asp:Label runat="server" ID="label2" Text="Spent :"></asp:Label></td>
-            <td><asp:TextBox CssClass="textbox" runat="server" ID="txtSpent"></asp:TextBox></td>
+            <td><asp:TextBox CssClass="textbox" runat="server" ID="txtAmountFirst"></asp:TextBox></td>
         </tr>
         <tr>
             <td><asp:Label runat="server" ID="Label8" Text="User Name :"></asp:Label></td>
@@ -34,14 +30,6 @@
                 <asp:DropDownList runat="server" ID="txtUser" Font-Size="14px" Width="207px" Height="25px" DataSourceID="tourTypeDS" DataTextField="UserName" DataValueField="UserId" ></asp:DropDownList>
                 <asp:SqlDataSource ID="tourTypeDS" runat="server" ConnectionString="<%$ ConnectionStrings:LocalSqlServer %>" ProviderName="<%$ ConnectionStrings:LocalSqlServer.ProviderName %>" SelectCommand="SELECT * FROM [dbo].[aspnet_Users]"></asp:SqlDataSource>
             </td>        
-        </tr>
-        <tr>
-            <td>
-                <asp:Label runat="server" ID="label3" Text="Balance:"></asp:Label>
-            </td>
-            <td>
-                <asp:TextBox CssClass="textbox" runat="server" ID="txtBalance"></asp:TextBox>
-            </td>
         </tr>
         <tr>
             <td>
